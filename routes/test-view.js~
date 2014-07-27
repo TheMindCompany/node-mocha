@@ -1,0 +1,28 @@
+var express = require('express');
+var router = express.Router();
+var data = require('../data');
+
+for(var num in data){
+	data[num] = data[num];
+}
+ 
+/* GET all. */
+router.get('/test', function(req, res) {
+  res.json(test-data);
+});
+
+
+/* GET selection. */
+router.get('/test/:selection', function(req, res) {
+  var selection = req.param('selection');
+
+if (typeof test-data[selection] === 'undefined') {
+	res.status(404).json({status: 'error'});
+  } else {
+	res.json(test-data[selection]);
+  }
+});
+
+module.exports = router;
+
+
